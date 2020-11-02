@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results for: "{{ query }}"</h1>
+    <hr />
+
+    {% for e in results %}
+        <div class="container-fluid card my-2 shadow">
+            <div class="card-body">
+                <h2>
+                    <a href = "{% url 'entry' e %}">{{ e }}</a>
+                </h2>
+            </div>
+        </div>
+    {% empty %}
+        <h3>No Results</h3>
+    {% endfor %}
+{% endblock %}

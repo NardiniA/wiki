@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+    <hr />
+
+    {% if error_msg %}
+        <div class = "alert alert-danger font-weight-bold">{{ error_msg }}</div>
+    {% endif %}
+
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type = "submit" class = "btn btn-lg btn-success">Save</button>
+    </form>
+{% endblock %}
