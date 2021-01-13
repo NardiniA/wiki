@@ -124,8 +124,32 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-MARKDOWNIFY_STRIP = False
-MARKDOWNIFY_WHITELIST_TAGS = {'a', 'p',
-                              'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ol',
-                              'ul', 'li', 'span',
-                              }
+MARKDOWNIFY_WHITELIST_TAGS = [
+    'a',
+    'b',
+    'blockquote',
+    'em',
+    'i',
+    'li',
+    'ol',
+    'p',
+    'strong',
+    'ul',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6'
+]
+
+MARKDOWNIFY_WHITELIST_ATTRS = [
+    'href',
+    'src',
+    'alt',
+]
+
+MARKDOWNIFY_WHITELIST_STYLES = [
+    'color',
+    'font-weight',
+]

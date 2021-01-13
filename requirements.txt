@@ -1,2 +1,4 @@
 django
+django-crispy-forms
 markdown2
+django-markdownify

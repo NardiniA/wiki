@@ -6,7 +6,21 @@
 {% endblock %}
 
 {% block body %}
-    {{ entry|markdownify }}
-    <hr />
-    <a href = "#">Edit Page</a>
+    {% if error %}
+        <a href = "{% url 'index' %}" class = "btn btn-primary my-3">&#8592; Back</a>
+
+        <div class="alert alert-danger">
+            <h4>Error</h4>
+            <p>Sorry, there has been an error. It seems that the page you requested does not exist. Please try a different one.</p>
+        </div> 
+    {% else %}
+        {% autoescape off %}
+            {{ entry|markdownify }}
+        {% endautoescape %}
+        <hr />
+        <div class="container-fluid">
+            <a href = "{% url 'index' %}" class = "float-left btn btn-primary">&#8592; Back</a>
+            <a href = "{% url 'edit' title %}" class = "float-right btn text-primary">Edit Page</a>
+        </div>
+    {% endif %}
 {% endblock %}

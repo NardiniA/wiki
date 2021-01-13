@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Edit - {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>Edit {{ title }} Page</h1>
+    <hr />
+
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="content" cols="40" rows="10" class="textarea form-control" required="" id="id_content">{{ entry }}</textarea>
+        <br />
+        <button type="submit" class="btn btn-lg btn-success">Save</button>
+    </form>
+{% endblock %}
+
+{% block script %}
+    <script>
+        
+        
+    </script>
+{% endblock %}
